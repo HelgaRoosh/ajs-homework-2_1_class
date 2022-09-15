@@ -1,10 +1,3 @@
-// class Character {
-// constructor(name, health) {
-// this.name = '';
-// this.health = 0;
-// }
-// }
-
 const CharWizard = {
   name: 'маг',
   health: 90,
