@@ -1,0 +1,28 @@
+body {
+    margin:50px;
+}
+
+.lifeprogress {
+    border: 2px solid black;
+    height: 50px;
+    width: 400px;
+}
+
+.lifeprogress_healthy {
+    height:100%;
+    width: 400px;
+    background-color: #00FF00
+}
+  
+.lifeprogress_wounded {
+    height:100%;
+    width: 200px;
+    background-color: #FFFF00
+}
+
+.lifeprogress_critical {
+    height:100%;
+    width: 100px;
+    background-color: #FF0000;
+}
+  
