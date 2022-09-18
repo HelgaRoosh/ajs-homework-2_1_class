@@ -1,9 +1,9 @@
 import Character from './classmam_Character';
 
 export default class Zombie extends Character {
-  type = 'Zombie';
-
-  attack = 40;
-
-  defence = 10;
+  constructor(name, type = 'Zombie') {
+    super(name, type);
+    this.attack = 40;
+    this.defence = 10;
+  }
 }

@@ -1,9 +1,9 @@
 import Character from './classmam_Character';
 
 export default class Daemon extends Character {
-  type = 'Daemon';
-
-  attack = 10;
-
-  defence = 40;
+  constructor(name, type = 'Daemon') {
+    super(name, type);
+    this.attack = 10;
+    this.defence = 40;
+  }
 }

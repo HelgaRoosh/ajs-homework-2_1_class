@@ -59,7 +59,7 @@ test.each([
 ])(
   ('class calculate for %s'),
   (charName, CharClass, expected) => {
-    const result = new CharClass(charName, charName);
+    const result = new CharClass(charName);
     expect(result).toEqual(expected);
   },
 );

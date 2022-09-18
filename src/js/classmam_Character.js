@@ -1,26 +1,29 @@
 export default class Character {
   constructor(name, type) {
-    this.name = name;
-    this.type = type;
+    // this.name = name;
+    // this.type = type;
+
     this.health = 100;
     this.level = 1;
+
     this.attack = undefined;
     this.defence = undefined;
-    this.controlCondition();
+
+    this.controlCondition(name, type);
   }
 
-  controlCondition() {
-    if (this.type !== 'Bowerman'
-    && this.type !== 'Swordsman'
-    && this.type !== 'Magician'
-    && this.type !== 'Daemon'
-    && this.type !== 'Undead'
-    && this.type !== 'Zombie') {
+  controlCondition(name, type) {
+    Character.types = ['Bowerman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
+    if (Character.types.includes(type)) {
+      this.type = type;
+    } else {
       throw new Error('Недопустимый тип игрока');
     }
 
-    if (this.name.length < 2 || this.name.length > 10) {
+    if (name.length < 2 || name.length > 10) {
       throw new Error('Недопустимая длинна имени игрока');
+    } else {
+      this.name = name;
     }
   }
 
@@ -36,14 +39,10 @@ export default class Character {
   }
 
   damage(points) {
-    if (this.health >= 0) {
+    if (this.health > 0) {
       this.health -= points * (1 - this.defence / 100);
     } else {
-      this.health = 0;
-      // не совсем ясно, как работает этот метод, по идее здоровье не может упасть ниже 0
-      // в самом методе damage должно быть предусмотрено, что при здоровье <=0 перс умирает
-      // и здоровье остается 0
-      // строки 41-42 написаны по этой причине для 100% покрытия автотестами
+      throw new Error('Нельзя нанести урон умершему');
     }
   }
 }
